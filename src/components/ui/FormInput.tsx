@@ -8,7 +8,7 @@ function FormInput({ labelText, id, name, ...props }: FormInputProps) {
     <div className="space-y-2">
       <FormLabel labelText={labelText} htmlFor={id} />
       <input
-        className="h-14 w-full rounded-xl border-2 border-neutral-500 bg-neutral-50/5 p-4 backdrop-blur-md selection:bg-neutral-500 focus:outline-2 focus:outline-offset-2 focus:outline-neutral-300"
+        className="h-14 w-full cursor-pointer rounded-xl border-2 border-neutral-500 bg-neutral-300/10 p-4 backdrop-blur-md transition-all selection:bg-neutral-500 hover:bg-neutral-700/50 focus:outline-2 focus:outline-offset-2 focus:outline-neutral-300"
         name={name}
         id={id}
         {...props}

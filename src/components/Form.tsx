@@ -1,7 +1,7 @@
 import FormHeader from "./ui/FormHeader";
 import FormButton from "./ui/FormButton";
 import FormInput from "./ui/FormInput";
-import FormLabel from "./ui/FormLabel";
+import FileUpload from "./FileUpload";
 
 function Form() {
   return (
@@ -10,11 +10,8 @@ function Form() {
 
       <form className="space-y-6 pb-30">
         {/* <!-- Form starts --> */}
-        <div>
-          <FormLabel htmlFor="fileupload" labelText="Upload Avatar" />
-          <input type="file" name="fileupload" />
-        </div>
 
+        <FileUpload />
         <FormInput
           type="text"
           name="fullName"
@@ -38,7 +35,7 @@ function Form() {
 
         <FormButton>Generate My Ticket</FormButton>
 
-        {/* Upload Avatar Drag and drop or click to upload Upload your photo (JPG or
+        {/* Upload your photo (JPG or
         PNG, max size: 500KB). Full Name Email Address example@email.com GitHub
         Username @yourusername Generate My Ticket */}
         {/* <!-- Form ends --> */}

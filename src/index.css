@@ -42,9 +42,15 @@
 body {
   min-height: 100vh;
   background-color: var(--color-neutral-700);
-  background-image: url("/assets/images/background-mobile.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image:
+    url("/assets/images/pattern-circle.svg"),
+    url("/assets/images/pattern-lines.svg"),
+    url("/assets/images/background-mobile.png");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 7rem, cover, cover;
+  background-position:
+    110% center,
+    0 0;
   position: relative;
   color: var(--color-neutral-0);
   font-family: Inconsolata;
