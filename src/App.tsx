@@ -35,7 +35,7 @@ function App() {
       {/* Logo */}
       <img
         src="/assets/images/logo-full.svg"
-        className="mx-auto w-40 py-8 md:w-auto"
+        className="mx-auto w-40 py-8 md:w-auto lg:pb-12"
       />
 
       {!submitted ? (

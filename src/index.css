@@ -79,3 +79,44 @@ body::after {
   bottom: 0;
   background-size: 75%;
 }
+
+@media (min-width: 48rem) {
+  body::before {
+    background-size: 15rem;
+  }
+  body {
+    background-image:
+      url("/assets/images/pattern-circle.svg"),
+      url("/assets/images/pattern-lines.svg"),
+      url("/assets/images/background-tablet.png");
+
+    background-position:
+      100% 40%,
+      0 0;
+  }
+}
+
+@media (min-width: 64rem) {
+  body {
+    background-image:
+      url("/assets/images/pattern-circle.svg"),
+      url("/assets/images/pattern-lines.svg"),
+      url("/assets/images/background-desktop.png");
+
+    background-size: 12rem, cover, cover;
+    background-position:
+      70% center,
+      0 0;
+  }
+
+  body::after {
+    background-image: url(/assets/images/pattern-squiggly-line-bottom-desktop.svg);
+    background-size: 100%;
+    width: 65%;
+  }
+
+  body::before {
+    background-size: 20rem;
+    background-position: 100% 5rem;
+  }
+}
