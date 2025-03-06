@@ -4,14 +4,14 @@ import Form from "./components/Form";
 function App() {
   const [submitted, setSubmitted] = useState(false);
 
+  function onPopstate(e: PopStateEvent) {
+    if (e.state !== undefined) {
+      setSubmitted(e.state.submitted);
+    }
+  }
+
   useEffect(() => {
     history.replaceState({ submitted: false }, "", document.location.href);
-
-    function onPopstate(e: PopStateEvent) {
-      if (e.state !== undefined) {
-        setSubmitted(e.state.submitted);
-      }
-    }
 
     window.addEventListener("popstate", onPopstate);
 
