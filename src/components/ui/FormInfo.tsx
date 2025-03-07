@@ -3,10 +3,12 @@ interface FormInfoProps extends ComponentProps<"div"> {
   text: string;
 }
 
+import InfoIcon from "../../../assets/images/icon-info.svg";
+
 function FormInfo({ text }: FormInfoProps) {
   return (
     <div className="flex gap-2">
-      <img src="/assets/images/icon-info.svg" alt="" />
+      <img src={InfoIcon} alt="" />
       <small>{text}</small>
     </div>
   );

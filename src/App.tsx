@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import { useLocation } from "react-router";
+import Logo from "../assets/images/logo-full.svg";
 
 function App() {
   const location = useLocation();
@@ -8,20 +9,9 @@ function App() {
   return (
     <main>
       {/* Logo */}
-      <img
-        src="/assets/images/logo-full.svg"
-        className="mx-auto w-40 py-8 md:w-40 lg:pb-12"
-      />
+      <img src={Logo} className="mx-auto w-40 py-8 md:w-40 lg:pb-12" />
 
       <Outlet />
-
-      {/* <div>
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge">
-          Frontend Mentor
-        </a>
-        . Coded by <a href="#">Your Name Here</a>.
-      </div> */}
     </main>
   );
 }

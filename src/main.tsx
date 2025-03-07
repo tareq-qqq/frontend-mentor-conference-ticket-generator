@@ -2,13 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import Form from "./components/Form.tsx";
 import Ticket from "./components/Ticket.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<App />}>
           <Route index element={<Form />} path="/" />
@@ -24,6 +24,6 @@ createRoot(document.getElementById("root")!).render(
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );

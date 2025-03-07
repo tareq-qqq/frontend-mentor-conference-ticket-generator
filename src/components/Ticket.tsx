@@ -2,6 +2,9 @@ import { useLocation } from "react-router";
 import TicketHeader from "./ui/TicketHeader";
 import { cn } from "../helpers/utils";
 import styles from "./Ticket.module.css";
+import IconGithub from "../../assets/images/icon-github.svg";
+import LogoMark from "../../assets/images/logo-mark.svg";
+import PatternTicket from "../../assets/images/pattern-ticket.svg";
 
 function Ticket() {
   const { state } = useLocation();
@@ -19,11 +22,7 @@ function Ticket() {
         <div className="absolute inset-0 z-0 flex flex-col justify-between px-8 py-4">
           {/* top */}
           <div className="flex items-start gap-4">
-            <img
-              src="/assets/images/logo-mark.svg"
-              alt=""
-              className="w-8 pt-2 lg:pt-4"
-            />
+            <img src={LogoMark} alt="" className="w-8 pt-2 lg:pt-4" />
             <div>
               <h2 className="text-[1.5rem] leading-8 font-extrabold text-neutral-50 md:text-3xl lg:leading-12">
                 Coding Conf
@@ -48,11 +47,7 @@ function Ticket() {
                 {state.fullname}
               </p>
               <div className="flex gap-1">
-                <img
-                  src="/assets/images/icon-github.svg"
-                  className="w-5"
-                  alt=""
-                />
+                <img src={IconGithub} className="w-5" alt="" />
                 <small className="font-medium text-neutral-300 md:text-lg">
                   @{state.username}
                 </small>
@@ -71,7 +66,7 @@ function Ticket() {
           {generateId()}
         </p>
 
-        <img className="" src="/assets/images/pattern-ticket.svg" alt="" />
+        <img className="" src={PatternTicket} alt="" />
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ import { Inputs } from "../interfaces/FormValues";
 import FormInfo from "./ui/FormInfo";
 import FormErrorMessage from "./ui/ErrorMessage";
 import { cn } from "../helpers/utils";
+import UploadIcon from "../../assets/images/icon-upload.svg";
 
 interface FileUploadProps extends ComponentProps<"input"> {
   setValue: UseFormSetValue<Inputs>;
@@ -160,7 +161,7 @@ function FileUpload({
               src={preview}
             />
           ) : (
-            <img src="/assets/images/icon-upload.svg" />
+            <img src={UploadIcon} />
           )}
         </div>
         {preview ? (
