@@ -1,6 +1,6 @@
 export interface Inputs {
-  fullName: string;
+  fullname: string;
   email: string;
   username: string;
-  avatar: File;
+  avatar: File | null;
 }

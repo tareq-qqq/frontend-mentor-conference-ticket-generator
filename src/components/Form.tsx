@@ -4,19 +4,38 @@ import FormInput from "./ui/FormInput";
 import FileUpload from "./FileUpload";
 import { useForm } from "react-hook-form";
 import { Inputs } from "../interfaces/FormValues";
+import { useNavigate } from "react-router";
+import { useState } from "react";
+// interface FormProps {
+//   setSubmitted: Dispatch<SetStateAction<boolean>>;
+// }
 
 function Form() {
+  const navigate = useNavigate();
+  const [preview, setPreview] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
     setError,
     setValue,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     clearErrors,
   } = useForm<Inputs>();
 
-  function onSubmit(data: Inputs) {
+  async function onSubmit(data: Inputs) {
+    console.log("Submitted");
     console.log(data);
+    const { fullname, email, username } = data;
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    navigate("/ticket", {
+      state: {
+        fullname,
+        email,
+        username,
+        preview,
+      },
+    });
   }
 
   return (
@@ -26,39 +45,64 @@ function Form() {
         <form
           className="space-y-6 pb-30 md:pb-40"
           onSubmit={handleSubmit(onSubmit)}
+          noValidate
         >
           {/* <!-- Form starts --> */}
 
           <FileUpload
+            preview={preview}
+            setPreview={setPreview}
             setError={setError}
             setValue={setValue}
             error={errors.avatar}
-            name="avatar"
             clearErrors={clearErrors}
-            register={register}
           />
           <FormInput
             type="text"
             id="fullName"
             labelText="Full Name"
-            {...register("fullName")}
+            {...register("fullname", {
+              required: "Please enter your name.",
+              maxLength: {
+                value: 255,
+                message: "You can't exceed 255 characters",
+              },
+            })}
+            error={errors.fullname}
           />
 
           <FormInput
             type="email"
             id="email"
             labelText="Email Address"
-            {...register("email")}
+            {...register("email", {
+              required: "Please provide your email.",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g,
+                message: "Please enter a valid email address.",
+              },
+            })}
+            error={errors.email}
           />
 
           <FormInput
-            {...register("username")}
+            {...register("username", {
+              required: "Please provide your GitHub username.",
+            })}
+            error={errors.username}
             type="text"
             id="username"
             labelText="GitHub Username"
           />
 
-          <FormButton>Generate My Ticket</FormButton>
+          <FormButton
+            isSubmitting={isSubmitting}
+            onClick={() => {
+              console.log(errors);
+            }}
+          >
+            Generate My Ticket
+          </FormButton>
 
           {/* Upload your photo (JPG or
         PNG, max size: 500KB). Full Name Email Address example@email.com GitHub

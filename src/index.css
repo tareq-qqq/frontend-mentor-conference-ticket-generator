@@ -37,6 +37,12 @@
   --color-gradient-text: linear-gradient(to right, #f67c6e, #ffffff);
 
   --font-incosolata: Inconsolata;
+
+  --breakpoint-md: 30rem;
+}
+
+html {
+  overflow-y: scroll;
 }
 
 body {
@@ -50,7 +56,8 @@ body {
   background-size: 7rem, cover, cover;
   background-position:
     110% center,
-    0 0;
+    0 0,
+    0 100%;
   position: relative;
   color: var(--color-neutral-0);
   font-family: Inconsolata;
@@ -105,7 +112,7 @@ body::after {
 
     background-size: 12rem, cover, cover;
     background-position:
-      70% center,
+      70% 65%,
       0 0;
   }
 

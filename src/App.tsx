@@ -1,48 +1,19 @@
-import { useEffect, useState } from "react";
-import Form from "./components/Form";
+import { Outlet } from "react-router";
+import { useLocation } from "react-router";
 
 function App() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function onPopstate(e: PopStateEvent) {
-    if (e.state !== undefined) {
-      setSubmitted(e.state.submitted);
-    }
-  }
-
-  useEffect(() => {
-    history.replaceState({ submitted: false }, "", document.location.href);
-
-    window.addEventListener("popstate", onPopstate);
-
-    return () => {
-      window.removeEventListener("popstate", onPopstate);
-    };
-  }, []);
+  const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <main>
-      {/* <button
-        className="text-5xl text-white"
-        onClick={() => {
-          setSubmitted(true);
-          history.pushState({ submitted: true }, "", "submitted");
-        }}
-      >
-        Test
-      </button> */}
-
       {/* Logo */}
       <img
         src="/assets/images/logo-full.svg"
-        className="mx-auto w-40 py-8 md:w-auto lg:pb-12"
+        className="mx-auto w-40 py-8 md:w-40 lg:pb-12"
       />
 
-      {!submitted ? (
-        <Form />
-      ) : (
-        <h2 className="text-6xl text-white">Submitted</h2>
-      )}
+      <Outlet />
 
       {/* <div>
         Challenge by
