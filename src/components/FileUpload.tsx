@@ -129,7 +129,7 @@ function FileUpload({
 
   return (
     <div className="space-y-2">
-      <FormLabel labelText="Upload Avatar" htmlFor="fileupload" />
+      <FormLabel labelText="Upload Avatar" htmlFor="avatar" />
       <div
         onClick={(e) => {
           if (preview) {
@@ -197,6 +197,7 @@ function FileUpload({
 
         <input
           type="file"
+          id="avatar"
           className="pointer-events-none absolute inset-0 cursor-pointer opacity-0"
           accept="image/*"
           ref={inputRef}
